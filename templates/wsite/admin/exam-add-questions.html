@@ -1,0 +1,164 @@
+{% extends 'bases/admin_base.html' %}
+{% load static %}
+{% block title %} Add Question {% endblock title %}
+{% block body_content %}
+    
+
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add Questions</h4>
+                    <p class="card-title-desc"></p>
+                    <form method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="form-group">
+                                    <label for="question">Question</label>
+                                    <input type="text" class="form-control" id="question" name="question"
+                                        value="{{ edit_question.question }}"   placeholder="Enter question here.." required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter question.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="picture">Picture</label>
+                                    <input type="file" class="form-control" id="picture"
+                                           name="picture" value="{{ edit_question.picture.url }}"
+                                           placeholder="Picture" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a picture.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="option_1">Option 1</label>
+                                    <input type="text" class="form-control" id="option_1"
+                                           name="option_1" value="{{ edit_question.option_1 }}"
+                                           placeholder="Option 1" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a option.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="option_2">Option 2</label>
+                                    <input type="text" class="form-control" id="option_2"
+                                           name="option_2" value="{{ edit_question.option_2 }}"
+                                           placeholder="Option 2" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a option.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="option_3">Option 3</label>
+                                    <input type="text" class="form-control" id="option_3"
+                                           name="option_3" value="{{ edit_question.option_3 }}"
+                                           placeholder="Option 3" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a option.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="correct_answer">Correct Answer</label>
+                                    <input type="text" class="form-control" id="correct_answer"
+                                           name="correct_answer" value="{{ edit_question.correct_answer }}"
+                                           placeholder="Correct Answer" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a answer.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Save Question</button>
+                    </form>
+                </div>
+            </div>
+            <!-- end card -->
+        </div> <!-- end col -->
+    </div>
+    <!-- end row -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">All Question of Part {{ part }}</h4>
+                    <div class="table-responsive">
+                        <table class="table table-centered table-nowrap mb-0">
+                            <thead class="thead-light">
+                            <tr>
+                                <th>Question</th>
+                                <th>Option 1</th>
+                                <th>Option 2</th>
+                                <th>Option 3</th>
+                                <th>Correct Answer</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for data in questions %}
+                              <tr>
+                                <td>{{ data.question }}</td>
+                                <td>{{ data.option_1 }}</td>
+                                <td>{{ data.option_2}}</td>
+                                <td>{{ data.option_3 }}</td>
+                                <td>{{ data.correct_answer }}</td>
+                                <td>
+{% if part == 1 %}
+                                    <a href="{% url 'edit_questions_part_1' data.id %}" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                        <i class="fa fa-pencil-alt"></i> Edit
+                                    </a>
+    {% elif part == 2 %}
+     <a href="{% url 'edit_questions_part_2' data.id %}" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                        <i class="fa fa-pencil-alt"></i> Edit
+                                    </a>
+    {% elif part == 3 %}
+    <a href="{% url 'edit_questions_part_3' data.id %}" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                        <i class="fa fa-pencil-alt"></i> Edit
+                                    </a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- end table-responsive -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end row -->
+{% endblock body_content %}

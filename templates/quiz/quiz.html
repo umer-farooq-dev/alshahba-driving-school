@@ -1,0 +1,130 @@
+{% extends 'bases/site_base.html' %}
+{% load static %}
+{% block title %} Quiz {% endblock title %}
+{% block nav_bar %}
+{% endblock nav_bar %}
+{% block body_content %}
+
+    <!-- start page title -->
+    <div class="row mt-5 text-center">
+        <div class="col-lg-12 text-center">
+            <span class="font-size-24 font-weight-bold text-primary mb-3">Part 1</span>
+            <div id="total_timer" class="font-weight-bold font-size-24"></div>
+        </div>
+
+    </div>
+
+    <div class="row mt-5 text-center">
+        <div class="col-lg-12 text-center">
+            <div id="timer" class="font-weight-bold font-size-24"></div>
+        </div>
+
+    </div>
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xl-6">
+
+
+                                                <img src="{% static 'images/small/img-1.jpg' %}" alt=""
+                                                     class="img-fluid" >
+
+
+                        </div>
+
+                        <div class="col-xl-6 text-center">
+                            <div class="mt-4 mt-xl-3">
+                                <h4 class="mt-1 mb-3">Question: You are driving 20km/hr. What should you do?</h4>
+                            </div>
+                            <div class="row text-center justify-content-center mt-5">
+                                <div class="col-lg-4">
+                                    <a href="#" class="btn btn-block btn-outline-primary">Brake</a>
+                                </div>
+                            </div>
+                            <div class="row text-center justify-content-center mt-4">
+                                <div class="col-lg-4">
+                                    <a href="#" class="btn btn-block btn-outline-primary">Release accelerator</a>
+                                </div>
+                            </div>
+                            <div class="row text-center justify-content-center mt-4">
+                                <div class="col-lg-4">
+                                    <a href="#" class="btn btn-block btn-outline-primary">Nothing</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- end row -->
+                </div>
+            </div>
+            <!-- end card -->
+        </div>
+    </div>
+    </section>
+{% endblock body_content %}
+{% block footer %}
+{% endblock footer %}
+
+{% block extra_js %}
+    <script>
+        {# Total Timer #}
+
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        $(document).ready(function () {
+            var timeLeft = 8;
+            var elem = document.getElementById('timer');
+            var timerId = setInterval(countdown, 1000);
+
+            function countdown() {
+                if (timeLeft == -1) {
+                    clearTimeout(timerId);
+                    nextQuestion();
+                } else {
+                    elem.innerHTML = timeLeft + ' seconds remaining';
+                    timeLeft--;
+                }
+            }
+
+            function nextQuestion() {
+                alert("Next question will appear");
+            }
+
+            {# Total Timer #}
+            var duration = 60 * 45;
+            display = document.getElementById('total_timer');
+            startTimer(duration, display);
+
+
+        })
+
+        if (window.performance) {
+            console.info("window.performance work's fine on this browser");
+        }
+        if (performance.navigation.type == 1) {
+            location.replace("http://127.0.0.1:8000/trial-starter/");
+        } else {
+            console.info("attempting...");
+
+        }
+    </script>
+{% endblock extra_js %}

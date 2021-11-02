@@ -1,0 +1,178 @@
+{% extends 'bases/admin_base.html' %}
+{% load static %}
+{% block title %} Packages {% endblock title %}
+{% block body_content %}
+    
+
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Packages</h4>
+                    <p class="card-title-desc">You can change Packages from here.</p>
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="package_name">Package Name</label>
+                                    <input type="text" class="form-control" id="package_name" name="package_name"
+                                        value="{{ package.package_name }}"   placeholder="Package Name" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter package name.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="price">Price</label>
+                                    <input type="number" class="form-control" id="price"
+                                           name="price" value="{{ package.price }}"
+                                           placeholder="Price" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a price.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="duration">Duration</label>
+                                    <input type="text" class="form-control" id="duration" name="duration"
+                                           placeholder="Duration" value="{{ package.duration }}"
+                                           required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a duration.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="feature_1">Feature 1</label>
+                                    <input type="text" class="form-control" name="feature_1" id="feature_1"
+                                           placeholder="Feature 1" value="{{ package.feature_1 }}"
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Please provide feature 1.
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="feature_2">Feature 2</label>
+                                    <input type="text" class="form-control" name="feature_2" id="feature_2"
+                                           placeholder="Feature 2" value="{{ package.feature_2 }}"
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Please provide feature 2.
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="feature_3">Feature 3</label>
+                                    <input type="text" class="form-control" name="feature_3" id="feature_3"
+                                           placeholder="Feature 3" value="{{ package.feature_3 }}"
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Please provide feature 3.
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="feature_4">Feature 4</label>
+                                    <input type="text" class="form-control" name="feature_4" id="feature_4" value="{{ package.feature_4|default_if_none:"" }}"
+                                           placeholder="Feature 4">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="feature_5">Feature 5</label>
+                                    <input type="text" class="form-control" name="feature_5" id="feature_5" value="{{ package.feature_5|default_if_none:"" }}"
+                                           placeholder="Feature 5">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Save Package</button>
+                    </form>
+                </div>
+            </div>
+            <!-- end card -->
+        </div> <!-- end col -->
+    </div>
+    <!-- end row -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">Available Packages</h4>
+                    <div class="table-responsive">
+                        <table class="table table-centered table-nowrap mb-0">
+                            <thead class="thead-light">
+                            <tr>
+                                <th>Package Name</th>
+                                <th>Price</th>
+                                <th>Duration</th>
+                                <th>Feature 1</th>
+                                <th>Feature 2</th>
+                                <th>Feature 3</th>
+                                <th>Feature 4</th>
+                                <th>Feature 5</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for data in packages %}
+                              <tr>
+                                <td>{{ data.package_name }}</td>
+                                <td>{{ data.price }}</td>
+                                <td>{{ data.duration}}</td>
+                                <td>{{ data.feature_1 }}</td>
+                                <td>{{ data.feature_2 }}</td>
+                                <td>{{ data.feature_3 }}</td>
+                                <td>{{ data.feature_4 }}</td>
+                                <td>{{ data.feature_5 }}</td>
+
+                                <td>
+
+                                    <a href="{% url 'update_package' data.id %}" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                        <i class="fa fa-pencil-alt"></i> Edit
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- end table-responsive -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end row -->
+{% endblock body_content %}

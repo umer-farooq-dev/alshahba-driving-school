@@ -1,0 +1,474 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+{% block title %} Home {% endblock title %}
+{% block body_content %}
+     <!-- Start Banner 
+    ============================================= -->
+    <div class="banner-area auto-height banner-box text-default text-light bg-gradient">
+
+        <div class="item">
+            <div class="box-table shadow dark">
+                <div class="box-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-4">
+                                <div class="content">
+                                    <h4>Wellcome in Alshahba Rij School</h4>
+                                    <h1>Learn from best online training Licences Test</h1>
+                                 
+                                    <a class="btn btn-light effect btn-md" href="#">Free Trail Exam </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>     
+    </div>
+    <!-- End Banner -->
+
+    <!-- Start About
+    ============================================= -->
+    <div id="about" class="about-area default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="about-info">
+                    <div class="col-md-6 thumb">
+                        <img src="{% static 'img/about.jpg' %}" alt="Thumb">
+                    </div>
+                    <div class="col-md-6 info" for="introduction">
+                        <h3>Introduction</h3>
+                        <h2>{{ site_info.introduction }}</h2>
+                        <p for="introduction_description">
+                           {{ site_info.introduction_description }}
+
+                        </p>
+                        <p>
+                            Curiosity incommode now led smallness allowance. Favour bed assure son things yet. She consisted consulted elsewhere happiness disposing household any old the. Widow downs. Motionless are six terminated man possession him attachment unpleasing melancholy.
+                        </p>
+                        <a href="#" class="btn btn-dark border btn-md">Read More</a>
+                    </div>
+                </div>
+                <div class="seperator col-md-12">
+                    <span class="border"></span>
+                </div>
+                            </div>
+        </div>
+    </div>
+    <!-- End About -->
+
+                <!-- Start Featured Courses
+    ============================================= -->
+    <div id="featured-courses" class="featured-courses-area2 left-details default-padding2">
+        <div class="container fff22">
+            <div class="row">
+                <div class="featured-courses-carousel owl-carousel owl-theme">
+                    <!-- Start Single Item -->
+                    <section id="advisor" class="about-area default-padding2">
+        <div class="container fff22">
+            <div class="row">
+                <div class="site-heading text-center">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2>Languages</h2>
+                        <p>
+                            Able an hope of body. Any nay shyness article matters own removal nothing his forming.
+                        </p>
+                    </div>
+                </div>
+            </div>
+             <section class="language-switch" id="language-switch"
+         style=" direction: ltr; ">
+   <div class="container">
+            <div class="row">
+                <div class="about-info">
+
+
+                </div>
+                <div class="seperator col-md-12">
+                    <span class="border"></span>
+                </div>
+                <div class="our-features">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="item mariner">
+                            <a class="btn btn-primary btn-lg btn-block" href="en.html"
+                   style="border-radius: 2rem;background: url({% static 'images/en.svg' %}) #084f95; background-position: -5px 0;background-repeat: no-repeat;background-size: 50px 47px;">English</a>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 col-sm-4">
+                        <div class="item mariner">
+                            <a class="btn btn-primary btn-lg btn-block" href="en.html"
+                   style="border-radius: 2rem;background: url({% static 'images/nl.svg' %}) #084f95; background-position: -5px 0;background-repeat: no-repeat;background-size: 50px 47px;">Netherland</a>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="item malachite">
+
+                            <a class="btn btn-primary btn-lg btn-block" href="en.html"
+                   style="border-radius: 2rem;background: url({% static 'images/ar.svg' %}) #084f95; background-position: -5px 0;background-repeat: no-repeat;background-size: 50px 47px;">عربی</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+        </div>
+                </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- End Featured Courses -->
+
+    <!--End Advisor Area -->
+    <div id="pricing" class="pricing-area default-padding bg-gray bottom-less">
+        <div class="container">
+            <div class="row">
+                <div class="site-heading text-center">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2>Subscription</h2>
+                        <p>
+                            Following are our affordable subscription plans.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="pricing pricing-simple text-center">
+                    {% for package in packages %}
+                        <div class="col-md-4 equal-height">
+                            <div class="pricing-item">
+                                <ul>
+                                    <li class="pricing-header">
+                                        <h4>{{ package.package_name }}</h4>
+                                        <h2><sup>$</sup>{{ package.price }}<sub>/ {{ package.duration }}</sub></h2>
+                                    </li>
+                                    <li><strong>{{ package.duration }}</strong></li>
+                                    <li>{{ package.feature_1 }}</li>
+                                    <li>{{ package.feature_2 }}</li>
+                                    <li>{{ package.feature_3 }}</li>
+                                    {#                                {% if package.feature_4 is not None %}#}
+                                    {#                                 <li> {{ package.feature_4|default_if_none:"" }}</li>#}
+                                    {#                                {% endif %}#}
+                                    {#                               {% if package.feature_5 is not None %}#}
+                                    {#                                 <li>{{ package.feature_5|default_if_none:"" }}</li>#}
+                                    {#                                {% endif %}#}
+                                    <li class="footer">
+                                        <a class="btn circle btn-dark border btn-sm" href="#">Buy This Plan</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Pricing Area -->
+
+
+   <!-- Start Fun Factor
+    ============================================= -->
+    <div class="fun-factor-area default-padding bottom-less text-center bg-fixed shadow dark-hard" style="background-image: url({% static 'img/banner/2.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 item">
+                    <div class="fun-fact">
+                        <div class="icon">
+                            <i class="flaticon-contract"></i>
+                        </div>
+                        <div class="info">
+                            <span class="timer" data-to="212" data-speed="5000"></span>
+                            <span class="medium">National Awards</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 item">
+                    <div class="fun-fact">
+                        <div class="icon">
+                            <i class="flaticon-professor"></i>
+                        </div>
+                        <div class="info">
+                            <span class="timer" data-to="128" data-speed="5000"></span>
+                            <span class="medium">Best Teachers</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 item">
+                    <div class="fun-fact">
+                        <div class="icon">
+                            <i class="flaticon-online"></i>
+                        </div>
+                        <div class="info">
+                            <span class="timer" data-to="8970" data-speed="5000"></span>
+                            <span class="medium">Students Enrolled</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 item">
+                    <div class="fun-fact">
+                        <div class="icon">
+                            <i class="flaticon-reading"></i>
+                        </div>
+                        <div class="info">
+                            <span class="timer" data-to="640" data-speed="5000"></span>
+                            <span class="medium">Cources</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Fun Factor -->
+
+    <!-- Start Event
+    ============================================= -->
+
+
+    <!-- Start Registration
+    ============================================= -->
+    <div class="reg-area default-padding-top bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="reg-items">
+                    <div class="col-md-6 reg-form default-padding-bottom">
+                        <div class="site-heading text-left">
+                            <h2>Get a Free online Registration</h2>
+                            <p>
+                                written on charmed justice is amiable farther besides. Law insensible middletons unsatiable for apartments boy delightful unreserved.
+                            </p>
+                        </div>
+                        <form action="#">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="First Name" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Last Name" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Email*" type="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <select>
+                                            <option value="1">Chose Subject</option>
+                                            <option value="2">Computer Engineering</option>
+                                            <option value="4">Accounting Technologies</option>
+                                            <option value="5">Web Development</option>
+                                            <option value="6">Machine Language</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Phone" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit">
+                                         <a class="popup-with-form" href="#register-form">
+                        <i class="fas fa-edit"></i> Register
+                    </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6 thumb">
+                        <img src="{% static 'img/contact.png' %}" alt="Thumb">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Registration -->
+
+    <!-- Start Testimonials
+    ============================================= -->
+
+    <!-- End Testimonials -->
+
+    <!-- Start Blog
+    ============================================= -->
+
+
+    <!-- Start Clients Area
+    ============================================= -->
+    <div class="clients-area default-padding bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 info">
+                    <h4>Our largest education campus</h4>
+                    <p>
+                        Seeing rather her you not esteem men settle genius excuse. Deal say over you age from. Comparison new ham melancholy son themselves.
+                    </p>
+                </div>
+                <div class="col-md-8 clients">
+                    <div class="clients-items owl-carousel owl-theme text-center">
+                        <div class="single-item">
+                            <a href="#"><img src="{% static 'img/clients/1.png' %}" alt="Clients"></a>
+                        </div>
+                        <div class="single-item">
+                            <a href="#"><img src="{% static 'img/clients/2.png' %}" alt="Clients"></a>
+                        </div>
+                        <div class="single-item">
+                            <a href="#"><img src="{% static 'img/clients/3.png' %}" alt="Clients"></a>
+                        </div>
+                        <div class="single-item">
+                            <a href="#"><img src="{% static 'img/clients/4.png' %}" alt="Clients"></a>
+                        </div>
+                        <div class="single-item">
+                            <a href="#"><img src="{% static 'img/clients/5.png' %}" alt="Clients"></a>
+                        </div>
+                        <div class="single-item">
+                            <a href="#"><img src="{% static 'img/clients/6.png' %}" alt="Clients"></a>
+                        </div>
+                        <div class="single-item">
+                            <a href="#"><img src="{% static 'img/clients/7.png' %}" alt="Clients"></a>
+                        </div>
+                        <div class="single-item">
+                            <a href="#"><img src="{% static 'img/clients/8.png' %}" alt="Clients"></a>
+                        </div>
+                        <div class="single-item">
+                            <a href="#"><img src="{% static 'img/clients/9.png' %}" alt="Clients"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Clients Area -->
+
+    <!-- Start Contact Info
+    ============================================= -->
+    <div id="contact" class="contact-info-area default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="site-heading text-center">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2>Contact us</h2>
+                        <p>
+                            Able an hope of body. Any nay shyness article matters own removal nothing his forming. Gay own additions education satisfied the perpetual. If he cause manor happy. Without farther she exposed saw man led. Along on happy could cease green oh.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Start Contact Info -->
+                <div class="contact-info">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="item">
+                            <div class="icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="info">
+                                <h4>Call Us</h4>
+                                <span>+324 119 2343</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="item">
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info">
+                                <h4>Address</h4>
+                                <span>+324 119 2343</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="item">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info">
+                                <h4>Email Us</h4>
+                                <span>info@yourdomain.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Contact Info -->
+
+                <div class="seperator col-md-12">
+                    <span class="border"></span>
+                </div>
+
+                <!-- Start Maps & Contact Form -->
+                <div class="maps-form">
+
+                    <div class="col-md-12 form">
+                        <div class="heading">
+                            <h3>Contact Us</h3>
+                            <p>
+                                Occasional terminated insensible and inhabiting gay. So know do fond to half on. Now who promise was justice new winding
+                            </p>
+                        </div>
+                        <form action="https://webhunt.store/themeforest/examin/assets/mail/contact.php" method="POST" class="contact-form">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <input class="form-control" id="name" name="name" placeholder="Name" type="text">
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <input class="form-control" id="email" name="email" placeholder="Email*" type="email">
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="form-group comments">
+                                        <textarea class="form-control" id="comments" name="comments" placeholder="Tell Me About Courses *"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <button type="submit" name="submit" id="submit">
+                                        Send Message <i class="fa fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Alert Message -->
+                            <div class="col-md-12 alert-notification">
+                                <div id="message" class="alert-msg"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- End Maps & Contact Form -->
+
+            </div>
+        </div>
+    </div>
+    <!-- End Contact Info -->
+
+{% endblock body_content %}
