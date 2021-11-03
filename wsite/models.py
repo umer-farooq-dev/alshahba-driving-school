@@ -2,11 +2,14 @@ from django.db import models
 
 
 class WebsiteInfo(models.Model):
+    
     heading = models.CharField(max_length=200, null=True, blank=True)
     description = models.TextField(max_length=1000)
     physical_address = models.CharField(max_length=1000, null=True, blank=True)
     email_address = models.EmailField(null=True, blank=True)
     phone_number = models.CharField(max_length=100, null=True, blank=True)
+    introduction = models.CharField(max_length=200, null=True, blank=True)
+    introduction_description = models.TextField(max_length=1000, default='SOME STRING')
     logo = models.ImageField(upload_to="images/logo", null=True, blank=True)
     youtube_video_url = models.CharField(max_length=500, null=True, blank=True)
 

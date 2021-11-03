@@ -33,6 +33,8 @@ def site_info(request):
         web_info.physical_address = request.POST.get("physical_address")
         web_info.email_address = request.POST.get("email_address")
         web_info.phone_number = request.POST.get("phone_number")
+        web_info.introduction = request.Post.get("introduction")
+        web_info.introduction_description = request.Post.get("introduction_description")
         web_info.logo = request.FILES["logo"]
         web_info.youtube_video_url = request.POST.get("youtube_video_url")
         web_info.save()

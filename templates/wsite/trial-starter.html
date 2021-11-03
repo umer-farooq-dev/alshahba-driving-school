@@ -1,4 +1,4 @@
-{% extends 'bases/site_base.html' %}
+{% extends 'bases/base.html' %}
 {% load static %}
 {% block title %} Trial Exam {% endblock title %}
 {% block nav_theme %}  bg-dark {% endblock nav_theme %}
@@ -8,109 +8,139 @@
 {% endblock extra_style %}
 {% block body_content %}
 
-    <div class="row" style="margin-top: 150px">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title mb-4 text-center">Maximum Duration 45 Minutes</h4>
+     <!-- Start Faq With Left Sidebar
+    ============================================= -->
+    <div class="faq-area left-sidebar course-details-area default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 faq-content">
 
-                    <div id="basic-pills-wizard" class="twitter-bs-wizard">
-                        <ul class="twitter-bs-wizard-nav">
-                            <li class="nav-item">
-                                <a href="#part-1" class="nav-link" data-toggle="tab">
-                                    <span class="step-number mr-2">01</span>
-                                    Part 1
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#part-2" class="nav-link" data-toggle="tab">
-                                    <span class="step-number mr-2">02</span>
-                                    <span>Part 2</span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#part-3" class="nav-link" data-toggle="tab">
-                                    <span class="step-number mr-2">03</span>
-                                    Part 3
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#confirm-start" class="nav-link" data-toggle="tab">
-                                    <span class="step-number mr-2">04</span>
-                                    Confirm & Start
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="tab-content twitter-bs-wizard-tab-content">
-                            <div class="tab-pane" id="part-1">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <p class="text-center font-size-20">
-                                            Part 1 consists of 25 questions about recognizing danger.<br>
-                                            For each question, you have 8 seconds to answer.<br>
-                                            At least 13 of the 25 questions must have been answered correctly.
+                    <!-- Start Accordion -->
+                    <div style="text-align: center;"><h3>Read Carefully Before Start Exams </h3></div>
+                    <div class="acd-items acd-arrow">
+                        <div class="panel-group symb" id="accordion">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#ac1">
+                                            Basic Information About Practice Exams
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="ac1" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <p>
+                                            During the Exam, if you reload a page its will be counted new Exam.
                                         </p>
+
+
+                                        <ul>
+                                            <li>The Maxiumin Time durration is 45 min</li>
+                                            <li>This Exams Consit of three parts</li>
+                                            <li>Impossible considered invitation him men instrument</li>
+
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="part-2">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <p class="text-center font-size-20">Part 2 consists of 12 questions about the
-                                            knowledge you need to participate in
-                                            traffic.<br>
-                                            Take the time to read the questions carefully before you answer.<br>
-                                            At least 10 of the 12 questions must have been answered correctly.
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#ac2">
+                                           Part One Hazard Prication
+                                        </a>
+                                    </h4>
+
+                                </div>
+                                <div id="ac2" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                         <p>
+                                            During the Exam, if you reload a page its will be counted new Exam.
                                         </p>
+
+                                        <ul>
+                                            <li>25 Question about reconiaing  Danger</li>
+                                            <li>Each Question Have 8 sec To answer</li>
+                                            <li>Atleast answer 13 out of 25 questions correcttly to achive milestone </li>
+
+
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="part-3">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <p class="text-center font-size-20">consists of 28 questions about traffic
-                                            insight.<br>
-                                            Take the time to read the questions carefully before you answer.<br>
-                                            Of the 28 questions, you must have answered at least 25 correctly.
-
-
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#ac3">
+                                             Part two About Traffic Rules
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="ac3" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                            During the Exam, if you reload a page its will be counted new Exam.
                                         </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="confirm-start">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-6">
-                                        <div class="text-center">
-                                            <div class="mb-4">
-                                                <i class="mdi mdi-check-circle-outline text-success display-4"></i>
-                                            </div>
-                                            <div>
-                                                <h5>Confirm & Start</h5>
-                                                <p class="text-muted">You must succeed in all parts to be successful</p>
-                                            </div>
-                                            <div>
-                                                <a href="{% url 'trial_exam' %}" class="btn btn-success btn-lg">Start Exam</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
+                                        <ul>
+                                            <li>13 Question about How to participate in tarffic </li>
+                                            <li>Read Each Question carefully before  answer </li>
+                                            <li>Atleast answer 10 out of 12 questions correcttly to achive milestone</li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#ac4">
+                                            Part Three  About Traffic Insight
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="ac4" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                            During the Exam, if you reload a page its will be counted new Exam.
+                                        </p>
+
+                                        <ul>
+                                            <li>13 Question about tarffic insight  </li>
+                                            <li>Read Each Question carefully before  answer </li>
+                                            <li>Atleast answer 25 out of 28 questions correcttly to achive milestone</li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <ul class="pager wizard twitter-bs-wizard-pager-link">
-                            <li class="previous"><a href="#">Previous</a></li>
-                            <li class="next"><a href="#">Next</a></li>
-                        </ul>
                     </div>
+                    <!-- End Accordion -->
+
+<h4 style="text-align: center; margin-top: 10%; ">
+                                   you must passed all part to be <b style="color: green;"> sucessfull </b> !
+                                </h4>
+                    <h3 style="align: center; background: #ffb606 none repeat scroll 0 0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color: #002147;
+    display: inline-block;
+    font-weight: 600;
+    margin-left: 38%;
+    padding: 8px 25px;"><a href="course-details.html">Start Pratice Exams</a></h3>
+
                 </div>
+                <!-- Start Sidebar -->
+
+                <!-- End Sidebar -->
             </div>
         </div>
-
-
     </div>
-    <!-- end row -->
+    <!-- End Faq -->
 {% endblock body_content %}
 
 {% block extra_js %}
